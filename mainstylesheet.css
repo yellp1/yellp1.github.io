@@ -1,12 +1,35 @@
-:root {
-	--main-clr: rgb(28, 28, 32);
-	--dark-clr: rgb(22, 22, 25);
-	--light-clr: rgb(35, 35, 40);
+@media (prefers-color-scheme: dark) {
+	:root {
+		--main-clr: rgb(28, 28, 32);
+		--dark-clr: rgb(22, 22, 25);
+		--light-clr: rgb(35, 35, 40);
+	
+		--text-main: rgb(204, 204, 204);
+		--text-bright: rgb(240, 240, 240);
+		--text-dimmed: rgb(170, 170, 170);
+		--text-dark: rgb(150, 150, 150);
 
-	--text-main: rgb(204, 204, 204);
-	--text-bright: rgb(240, 240, 240);
-	--text-dimmed: rgb(170, 170, 170);
-	--text-dark: rgb(150, 150, 150);
+		--theme: 0 0 0;
+	}
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		--main-clr: rgb(255, 255, 255);
+		--dark-clr: rgb(220, 220, 220);
+		--light-clr: rgb(255, 255, 255);
+	
+		--text-main: rgb(10, 10, 10);
+		--text-bright: rgb(0, 0, 0);
+		--text-dimmed: rgb(30, 30, 30);
+		--text-dark: rgb(50, 50, 50);
+
+		--theme: 255 255 255;
+	}
+}
+
+:root {
+	--gradient-text: -webkit-linear-gradient(0deg, rgba(167,114,90,1) 0%, rgba(255,181,0,1) 10%, rgba(134,0,255,1) 100%);
 }
 
 
@@ -32,6 +55,13 @@ html {
 	font-family: 'Gotham Narrow', Arial, sans-serif;
 	scroll-behavior: smooth;
 	scroll-padding: 6rem;
+}
+
+.username {
+	background: var(--gradient-text);
+	background-clip: text;
+	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
 }
 
 img, .material-symbols-outlined { pointer-events: none; user-select: none; }
@@ -118,6 +148,7 @@ body {
 	height: 10rem;
 }
 
+
 .main-card .card-pfp {
 	background-color: var(--light-clr);
 	border: 8px solid var(--dark-clr);
@@ -162,7 +193,6 @@ body {
 	transition: background-color 200ms ease;
 }
 
-
 .card .btn {
 	background-color: rgb(35 35 39);
 	border: 1px solid var(--main-clr);
@@ -185,9 +215,8 @@ body {
 	transition: opacity 500ms ease, transform 500ms ease;
 }
 
-
 .card .btn .btn-info {
-	background-color: rgb(0 0 0.05 / 0.6);
+	background-color: rgb(var(--theme) / 0.6);
 	transition: transform 200ms ease;
 	color: var(--text-main);
 	padding: 0.5rem;
@@ -311,6 +340,17 @@ a:visited:hover {
 	color: var(--text-dimmed) !important;
 }
 
+.main-header a.selected::after {
+	content: "";
+	display: block;
+	position: relative;
+	width: 20%;
+	height: 10%;
+	margin: auto;
+	background: var(--text-bright);
+	transform: translateY(-50%) !important;
+	border-radius: 50vh;
+}
 
 
 
