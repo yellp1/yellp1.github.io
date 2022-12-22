@@ -8,7 +8,7 @@ xhr.onload = () => {
       if ( x.href.match(/\.(jpe?g|png|gif)$/) ) { 
           let img = document.createElement("img");
           img.src = x.href;
-		  $(".image-container").append(img);
+		  $(".image-container").append (img);
       } 
     };
   } 
