@@ -1,4 +1,4 @@
-var folder = "images/showcase";
+var folder = "images";
 
 $.ajax({
     url : folder,
