@@ -3,6 +3,7 @@
 <html>
 	<!-- <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script> -->
 	<link rel="stylesheet" href="mainstylesheet.css">
+	<link rel="stylesheet" href="imagesstylesheet.css">
 
 	<head>
 		<link rel="icon" href="images/profile-picture.png">
@@ -11,17 +12,17 @@
 	<header class="main-header">
 		<div id="navigation">
 			<div class="btn">
-				<a href="#page" style="--button-clr: rgb(144, 230, 20)" class="selected">
+				<a href="/index" style="--button-clr: rgb(144, 230, 20)">
 					<span class="material-symbols-outlined">home</span>
 				</a>
 			</div>
 			<div class="btn">
-				<a href="#games-card" style="--button-clr: rgb(250, 106, 205)">
+				<a href="/screenshots" style="--button-clr: rgb(250, 106, 205)" class="selected">
 					<span class="material-symbols-outlined">sports_esports</span>
 				</a>
 			</div>
 			<div class="btn">
-				<a href="#plugins-card" style="--button-clr: rgb(151, 238, 249)">
+				<a href="" style="--button-clr: rgb(151, 238, 249)">
 					<span class="material-symbols-outlined">extension</span>
 				</a>
 			</div>
@@ -30,18 +31,7 @@
 
 	<body>
 		<div id="page">
-			<div class="card-container">
-				<div class="main-card card">
-					<div class="card-image">
-						<img src="images/droplets-colored.jpg">
-					</div>
-					<img class="card-pfp" src="images/profile-picture.png">
-					<div class="card-text">
-						<h2><a class="username" href="https://www.twitter.com/yellp1RBX" title="View on Twitter" target="_blank">@yellp1RBX</a></h2>
-						<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam consequatur, atque eius ad sapiente magni maiores sit velit aut vel esse enim, similique sed eveniet. Similique maiores aperiam nulla sint.</p>
-					</div>
-				</div>
-			</div>
+			<div class="image-container"></div>
 		</div>
 	</body>
 
@@ -71,6 +61,7 @@
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="mainjavascript.js" type="text/javascript"></script> 
+	<script src="imageLoader.js" type="text/javascript"></script> 
 	<style>
 		.material-symbols-outlined {
 		  font-variation-settings:

@@ -1,0 +1,6 @@
+.image-container img {
+	border-radius: 8px;
+	object-fit: cover;
+	width: 50%;
+	height: auto;
+}
