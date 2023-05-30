@@ -30,6 +30,7 @@
 
 :root {
 	--gradient-text: -webkit-linear-gradient(0deg, rgba(167,114,90,1) 0%, rgba(255,181,0,1) 10%, rgba(134,0,255,1) 100%);
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 
@@ -70,20 +71,20 @@ img, .material-symbols-outlined { pointer-events: none; user-select: none; }
 
 
 header {
-	box-shadow: 0rem 1rem 1rem 0rem rgb(0 0 0 / 0.1);
+	box-shadow: 0rem 0.2rem 1rem 0rem rgb(0 0 0 / 0.1);
 	background: var(--light-clr);
-	height: 5rem;
+	height: 4rem;
 	width: 100%;
 
 	position: fixed;
-	
 	z-index: 100;
 }
 
 
 body {
-	padding: 0;
-	margin: 0;
+	height: max(1vh, 2rem);
+	min-height: 1vh;
+	margin: auto;
 }
 
 
@@ -92,29 +93,31 @@ body {
 /* -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
 
 #navigation {
-	grid-template-columns: 1fr 1fr 1fr;
-	place-items: center;
-	margin: auto;
-	display: grid;
-
-	vertical-align: middle;
-	max-width: 30rem;
-	height: 100%;
-	width: 100%;
+	position: absolute;
+	align-items: center;
+	display: flex;
+	inset: 0 0 0 0;
 }
 
-.main-header .btn a {
-	display: block;
-	height: 3rem;
+#navigation > li {
+	display: inline-block;
+	margin: 0 0.65em 0 0.6em;
+	font-size: 1.2em;
+	border-radius: 6px;
+	transition: background-color 100ms ease;
 }
 
-.main-header .btn a span {
-	font-size: 3rem;
+#navigation > li:hover {
+	background-color: rgb(0 0 0 / 10%);
+}
+
+#navigation > li > a {
+	color: var(--text-main);
+	padding: 0.5em;
 }
 
 
 /* -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
-
 
 
 #page {
@@ -319,27 +322,8 @@ a:visited:hover {
 	to { transform: translateY(0%); }
 }
 
-.main-header a .material-symbols-outlined {
-	color: var(--text-main);
 
-	transition: color 200ms ease;
-}
-
-.main-header a.selected .material-symbols-outlined {
-	animation: bounce 300ms ease;
-	/* color: var(--button-clr); */
-	color: var(--text-bright);
-  	font-variation-settings:
-	'FILL' 1,
-	'wght' 400,
-	'GRAD' 0,
-	'opsz' 48;
-}
-
-.main-header a:not(.selected):hover .material-symbols-outlined {
-	color: var(--text-dimmed) !important;
-}
-
+/* 
 .main-header a.selected::after {
 	content: "";
 	display: block;
@@ -350,7 +334,7 @@ a:visited:hover {
 	background: var(--text-bright);
 	transform: translateY(-50%) !important;
 	border-radius: 50vh;
-}
+} */
 
 
 

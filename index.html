@@ -1,141 +1,43 @@
 <!DOCTYPE html>
 
-<html>
-	<!-- <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script> -->
-	<link rel="stylesheet" href="mainstylesheet.css">
 
+<html class="colors entities">
+	<!-- <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script> -->
+	<link rel="stylesheet" href="stylesheets/index.css">
+	<link rel="stylesheet" href="stylesheets/imagesstylesheet.css">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
 	<head>
 		<link rel="icon" href="images/profile-picture.png">
 	</head>
 
 	<header class="main-header">
-		<div id="navigation">
-			<div class="btn">
-				<a href="" style="--button-clr: rgb(144, 230, 20)" class="selected">
-					<span class="material-symbols-outlined">home</span>
-				</a>
-			</div>
-			<div class="btn">
-				<a href="/screenshots" style="--button-clr: rgb(250, 106, 205)">
-					<span class="material-symbols-outlined">sports_esports</span>
-				</a>
-			</div>
-			<div class="btn">
-				<a href="#plugins-card" style="--button-clr: rgb(151, 238, 249)">
-					<span class="material-symbols-outlined">extension</span>
-				</a>
-			</div>
-		</div>
+		<ul id="navigation">
+			<li>
+				<img class="profile-icon" src="/images/profile-picture.png">
+			</li>
+			<li class="navigation-button">
+				<a href="">Home</a>
+			</li>
+			<li class="navigation-button">
+				<a href="">Creations</a>
+			</li>
+			<li class="navigation-button">
+				<a href="">Contact</a>
+			</li>
+		</ul>
 	</header>
 
 	<body>
 		<div id="page">
-			<div class="card-container">
-				<div class="main-card card">
-					<div class="card-image">
-						<img src="images/droplets-colored.jpg">
-					</div>
-					<img class="card-pfp" src="images/profile-picture.png">
-					<div class="card-text">
-						<h2><a class="username" href="https://www.twitter.com/yellp1RBX" title="View on Twitter" target="_blank">@yellp1RBX</a></h2>
-						<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam consequatur, atque eius ad sapiente magni maiores sit velit aut vel esse enim, similique sed eveniet. Similique maiores aperiam nulla sint.</p>
-					</div>
-				</div>
-
-				<div id="games-card" class="games-card card">
-					<h1 style="margin-bottom: 0.5rem; padding-left: 0.25rem;">Games</h1>
-					<div class="grid">
-						<a class="btn" href="https://www.roblox.com/games/2773040896/My-Droplets" target="_blank">
-							<img src="images/my-droplets-square.png">
-							<div class="btn-info">
-								<h4>My Droplets</h4>
-								<p>The cutest immersive social pet simulation where you can adopt your very own droplets, teach them tricks, take care of and grow with them!</p>
-							</div>
-						</a>
-
-						<a class="btn" href="https://www.roblox.com/games/5273935810/Bloxel" target="_blank">
-							<img src="images/bloxel-game.png">
-							<div class="btn-info">
-								<h4>Bloxel</h4>
-								<p>Let your creativity flow and create whatever comes to your mind with voxels!</p>
-							</div>
-						</a>
-
-						<a class="btn" href="https://www.roblox.com/games/3625846821/SpooksHD-1st-Annual-Game-Jam" target="_blank">
-							<img src="https://tr.rbxcdn.com/518a3cac18955975c8eff175906985ef/352/352/Image/Png">
-							<div class="btn-info">
-								<h4>SpooksHD Game Jam</h4>
-								<p>Just a quick little game jam that took place over the course of 2 days.</p>
-							</div>
-						</a>
-					</div>
-				</div>
-
-				<div id="plugins-card" class="plugins-card card">
-					<h1 style="margin-bottom: 0.5rem; padding-left: 0.25rem;">Plugins</h1>
-					<div class="grid">
-						<a class="btn" href="https://www.roblox.com/library/7785391867/Local-Icons" target="_blank">
-							<img src="https://tr.rbxcdn.com/bc0479bee8e8f0fc4baf16bb45814f3a/420/420/Image/Png">
-							<div class="btn-info">
-								<h4>Local Icons</h4>
-								<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam rerum dignissimos ea sapiente quo.</p>
-							</div>
-						</a>
-
-						<a class="btn" href="https://www.roblox.com/library/4317552923/Wall-Creator" target="_blank">
-							<img src="images/wall-creator-plugin.png">
-							<div class="btn-info">
-								<h4>Wall Creator</h4>
-								<p>A plugin that allows you to automatically generate walls from a set of posts.</p>
-							</div>
-						</a>
-
-						<a class="btn" href="https://www.roblox.com/library/6268268616/Explorer-Scanner" target="_blank">
-							<img src="images/explorer-scanner-plugin.png">
-							<div class="btn-info">
-								<h4>Explorer Scanner</h4>
-								<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam rerum dignissimos ea sapiente quo.</p>
-							</div>
-						</a>
-
-						<a class="btn" href="https://www.roblox.com/library/6674294794/UI-Corner-Editor" target="_blank">
-							<img src="images/ui-corner-editor.png">
-							<div class="btn-info">
-								<h4>UI Corner Editor</h4>
-								<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam rerum dignissimos ea sapiente quo.</p>
-							</div>
-						</a>
-
-						<a class="btn" href="https://www.roblox.com/library/6898396682/Style-Guide-Viewer" target="_blank">
-							<img src="images/style-guide-viewer-plugin.png">
-							<div class="btn-info">
-								<h4>Style Guide Viewer</h4>
-								<p>Shows a list of roblox studio's official color style guide in an easily digestable list view.</p>
-							</div>
-						</a>
-
-						<a class="btn" href="https://www.roblox.com/library/4631400056/Advanced-Camera" target="_blank">
-							<img src="images/advanced-camera-plugin.png">
-							<div class="btn-info">
-								<h4>Advanced Camera</h4>
-								<p>Gives the studio camera more customization.</p>
-							</div>
-						</a>
-
-						<a class="btn" href="https://www.roblox.com/library/7121556106/Measurement-Converter" target="_blank">
-							<img src="https://tr.rbxcdn.com/c45b679dc5664fd25959820281e93c28/420/420/Image/Png">
-							<div class="btn-info">
-								<h4>Measurement Converter</h4>
-								<p>Converts real world measurements into studs.</p>
-							</div>
-						</a>
-					</div>
-				</div>
+			<div class="creations-container">
+				<!-- <div class="plugin-cards"></div> -->
 			</div>
 		</div>
 	</body>
 
-	<footer>
+	<!-- <footer>
 		<div id="social-media-container">
 			<div class="btn">
 				<a href="https://www.roblox.com/users/543899057/profile" target="_blank" style="--button-clr: rgb(250, 106, 205)">
@@ -154,13 +56,12 @@
 				</a>
 			</div>
 		</div>
-	</footer>
+	</footer> -->
 
 	<!-- Changing font of topbar buttons to solid instead of outline. -->
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script src="mainjavascript.js" type="text/javascript"></script> 
+	<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+	<script src="/scripts/pluginLinkLoader.js" type="text/javascript"></script> 
 	<style>
 		.material-symbols-outlined {
 		  font-variation-settings:
