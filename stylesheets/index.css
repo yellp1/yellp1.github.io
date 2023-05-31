@@ -1,13 +1,25 @@
 html.colors {
 	--text-color: black;
-	--primary-hsl: hsl(0, 0%, 100%);
+	--primary-hsl: hsl(0, 0%, 94%);
 	--secondary-hsl: hsl(0, 0%, 100%);
+	--tertiary-hsl: hsl(0, 0%, 100%);
+	--orange-hs: 43, 100%;
 }
 
 html.entities {
+	--header-button-hover-color: hsla(var(--orange-hs), 80%, 60%);
 	--header-background-color: var(--secondary-hsl);
 	--header-text-color: var(--text-color);
 	--header-box-shadow: 0rem 0.2rem 1rem 0rem rgb(0 0 0 / 0.1);
+
+	--card-box-shadow: 0em 0.3em 0.5em 0.05em hsla(0, 0%, 0%, 20%);
+
+	--card-image-box-shadow-distance: 0.2em;
+	--card-image-box-shadow: inset var(--card-image-box-shadow-distance) var(--card-image-box-shadow-distance) calc(var(--card-image-box-shadow-distance) * 2) hsl(0, 0%, 0%, 18%),
+            				inset calc(-1 * var(--card-image-box-shadow-distance)) calc(-1 * var(--card-image-box-shadow-distance)) calc(var(--card-image-box-shadow-distance) * 2) hsl(0, 0%, 90%, 3%);
+	--card-box-shadow: 0em 0.3em 0.5em 0.1em hsla(0, 0%, 0%, 20%);
+	--card-shadow-gradient: linear-gradient(145deg, hsl(0, 0%, 0%, 10%), transparent);
+	--transparent-background-color: hsl(0, 0%, 90%);
 }
 
 :root {
@@ -20,8 +32,21 @@ html.entities {
 	html.colors {
 		--primary-hsl: hsl(230.5, 29%, 10%);
 		--secondary-hsl: hsl(230.5, 22.4%, 17%);
+		--tertiary-hsl: hsl(230.5, 22.4%, 22%);
 
+		--border-color: hsl(0, 0%, 12%);
 		--text-color: hsl(0, 0%, 80%);
+	}
+	html.entities {
+		--header-button-hover-color: var(--tertiary-hsl);
+		--transparent-background-color: hsl(230.5, 22.4%, 14%, 100%);
+		--card-image-border-color: var(--secondary-hsl);
+
+		--card-shadow-gradient: linear-gradient(145deg, hsl(0, 0%, 0%, 90%), transparent);
+		--card-image-box-shadow-distance: 0.15em;
+		--card-image-box-shadow: inset var(--card-image-box-shadow-distance) var(--card-image-box-shadow-distance) calc(var(--card-image-box-shadow-distance) * 2) hsl(0, 0%, 0%, 60%),
+            				inset calc(-1 * var(--card-image-box-shadow-distance)) calc(-1 * var(--card-image-box-shadow-distance)) calc(var(--card-image-box-shadow-distance) * 2) hsl(0, 0%, 90%, 2%);
+		/* --card-container-color: hsl(0, 0%, 100%, 2%); */
 	}
 }
 
@@ -39,6 +64,12 @@ h3,
 a,
 span {
 	color: var(--text-color);
+	padding: 0;
+	margin: 0;
+}
+
+h1 {
+	margin-bottom: 1em;
 }
 
 
@@ -52,6 +83,7 @@ header {
 	width: 100%;
 	height: var(--header-height);
 	display: flex;
+	z-index: 10;
 }
 
 #navigation {
@@ -75,7 +107,8 @@ header {
 }
 
 #navigation > .navigation-button:hover {
-	background-color: rgb(0 0 0 / 10%);
+	/* background-color: rgb(0 0 0 / 10%); */
+	background-color: var(--header-button-hover-color);
 }
 
 #navigation > .navigation-button > a {
@@ -89,6 +122,7 @@ header {
 	padding-right: 2em;
 	padding-left: 1.5em;
 	position: relative;
+	pointer-events: none;
 }
 
 /* -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
@@ -100,55 +134,144 @@ header {
 }
 
 .creations-container {
-	max-width: 1080px;
 	width: calc(100% - 4em);
+	max-width: 1080px;
 	margin: auto;
+
+	background-color: hsl(0, 0%, 100%, 1%);
+	border-radius: 1em;
+	padding: 2em;
 }
+
 
 /* -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
 /* Cards */
 
 
 .card-container {
-	--gap-size: 1em;
-	--grid-size: calc(40em / 3 - var(--gap-size));
+	--gap-size: 1.5em;
+	--grid-size: calc(40em / 2.4 - var(--gap-size));
+
 	grid-template-columns: repeat(auto-fit, minmax(var(--grid-size), 1fr));
+	justify-content: center;
 	gap: var(--gap-size);
 	display: grid;
 }
 
 .card-button {
+	--card-border-radius: 0.5em;
 	border: 1px solid var(--light-clr);
+	background: --card-shadow-gradient;
 	background-color: var(--secondary-hsl);
-	aspect-ratio: 1 / 1;
-	border-radius: 1rem;
-	overflow: hidden;
+	border-radius: var(--card-border-radius);
+	position: relative;
+	padding: 1em;
 	display: block;
-	
-	box-shadow: 0rem 0.5rem 1rem 0.25rem rgb(0 0 0 / 0.1);
-	border: 1px solid hsla(0, 0%, 0%, 0.15);
-	transition: filter 200ms ease;
+	/* border: 1px solid var(--border-color); */
+	transition: filter 200ms ease, transform 200ms ease;
 }
 
-.card-button > img {
-	object-fit: cover;
-	display: block;;
+a.card-button:before {
+	box-shadow: var(--card-image-box-shadow);
+	opacity: 1;
+}
+
+a.card-button:after {
+	box-shadow: var(--card-box-shadow);
+}
+
+a.card-button:hover {
+	transform: scale(105%);
+}
+
+a.card-button:hover:after {
+	opacity: 1;
+}
+
+a.card-button:hover:before {
+	opacity: 0
+}
+
+.card-icon-frame {
+	border-radius: calc(var(--card-border-radius) / 3);
+	background: hsl(0, 0%, 0%, 10%);
+	aspect-ratio: 1 / 1;
+	padding: 1em;
+
+	/* background: #e99f59;
+	background: #cf643c;
+
+	background: #8e74ae; */
+	/* background: #695a87; */
+}
+
+.card-icon-frame.drop-shadow:after {
+	box-shadow: var(--card-image-box-shadow);
+	/* position: relative; */
 	height: 100%;
 	width: 100%;
-
-	transition: transform 400ms ease;
+	opacity: 1;
 }
 
-.card-button:hover {
-	filter: brightness(80%);
+.card-icon-frame > img {
+	border-radius: inherit;
+	object-fit: cover;
+	display: flex;
+	height: 100%;
+	width: 100%;
 }
 
-.card-button:hover img {
-	transform: scale(1.05);
+.card-button > h3 {
+	margin: 0.6em 0 0.3em 0;
+}
+
+.card-button > span {
+	font-size: 1em;
+	opacity: 0.8;
 }
 
 
 /* -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+
+
+.drop-shadow:after,
+.inset-shadow:before {
+	content: "";
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	opacity: 0;
+	position: absolute;
+	pointer-events: none;
+	border-radius: inherit;
+	transition: opacity 200ms ease;
+}
+
+
+/* -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+
+
+img.transparent {
+	--checkerboard-size: 25px;
+	--checkerboard-offset: calc(var(--checkerboard-size) - var(--image-margin));
+	/* --transparent-background-color: rgba(150,150,150,0.1); */
+	/* --half-size: calc(var(--checkerboard-size) / 2); */
+	
+	/* background-color: var(--transparent-background-color);
+	background-image: linear-gradient(45deg,var(--transparent-background-color) 25%,rgba(239,239,239,0) 25%,rgba(239,239,239,0) 75%,var(--transparent-background-color) 75%,var(--transparent-background-color)),linear-gradient(45deg,var(--transparent-background-color) 25%,rgba(239,239,239,0) 25%,rgba(239,239,239,0) 75%,var(--transparent-background-color) 75%,var(--transparent-background-color));
+	background-position: 0 0, calc(var(--checkerboard-size) / 2) calc(var(--checkerboard-size) / 2);
+	background-size: var(--checkerboard-size) var(--checkerboard-size); */
+
+	/* transition: inherit, background-position 4000ms ease; */
+	/* background-image:
+		linear-gradient(45deg, #ccc 25%, transparent 25%), 
+		linear-gradient(135deg, #ccc 25%, transparent 25%),
+		linear-gradient(45deg, transparent 75%, #ccc 75%),
+		linear-gradient(135deg, transparent 75%, #ccc 75%);
+    background-size: var(--checkerboard-size) var(--checkerboard-size); Must be a square
+    background-position: var(--position); Must be half of one side of the square */
+}
 
 
 a:link,
