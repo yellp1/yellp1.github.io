@@ -43,19 +43,27 @@ fetch('/projects/pluginLinks.json')
 				// pluginCard.className = 'card'
 
 				const button = document.createElement("a")
-				button.className = 'card-button'
+				button.className = 'card-button drop-shadow inset-shadow'
 				button.href = value.link
 				button.target = "_blank"
 
-				// const path = key.toLowerCase().replace(/ +/g, "-")
+				const imageFrame = document.createElement("div")
+				// imageFrame.className = "card-icon-frame drop-shadow"
+				imageFrame.className = "card-icon-frame"
+				button.appendChild(imageFrame)
+
 				const icon = document.createElement("img")
 				icon.src = value.icon
-				// icon.src = `/images/icons/${path}.png`
-				button.appendChild(icon)
-				// icon.src = "/images/".replace()
+				imageFrame.appendChild(icon)
+				
+				const title = document.createElement("h3")
+				title.textContent = key
+				button.appendChild(title)
 
-				// .jss95
-				// button.appendChild(button)
+				const description = document.createElement("span")
+				description.textContent = value.description || ""
+				button.appendChild(description)
+
 				grid.appendChild(button)
 			}
 		}
