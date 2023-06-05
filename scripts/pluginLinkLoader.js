@@ -42,6 +42,8 @@ fetch('/projects/pluginLinks.json')
 				// const pluginCard = document.createElement('div');
 				// pluginCard.className = 'card'
 
+				// Getting common color from an image V
+				// https://gist.github.com/dctalbot/40e3ef209e12f50800734d005131d820
 				const button = document.createElement("a")
 				button.className = 'card-button drop-shadow inset-shadow'
 				button.href = value.link
