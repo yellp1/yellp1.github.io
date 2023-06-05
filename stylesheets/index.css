@@ -11,6 +11,7 @@ html.entities {
 	--header-background-color: var(--secondary-hsl);
 	--header-text-color: var(--text-color);
 	--header-box-shadow: 0rem 0.2rem 1rem 0rem rgb(0 0 0 / 0.1);
+	--footer-box-shadow: 0rem -0.2rem 1rem 0rem rgb(0 0 0 / 0.1);
 
 	--card-box-shadow: 0em 0.3em 0.5em 0.05em hsla(0, 0%, 0%, 20%);
 
@@ -20,10 +21,16 @@ html.entities {
 	--card-box-shadow: 0em 0.3em 0.5em 0.1em hsla(0, 0%, 0%, 20%);
 	--card-shadow-gradient: linear-gradient(145deg, hsl(0, 0%, 0%, 10%), transparent);
 	--transparent-background-color: hsl(0, 0%, 90%);
+
+	--wave-color-primary: #e99f59;
+	--wave-color-secondary: #8e74ae;
 }
 
-:root {
+html {
+	--header-height: 4em;
 	font-family: Arial, Helvetica, sans-serif;
+	scroll-padding: var(--header-height);
+	scroll-behavior: smooth;
 	line-height: 1.6em;
 	margin: 0;
 }
@@ -45,14 +52,21 @@ html.entities {
 		--card-shadow-gradient: linear-gradient(145deg, hsl(0, 0%, 0%, 90%), transparent);
 		--card-image-box-shadow-distance: 0.15em;
 		--card-image-box-shadow: inset var(--card-image-box-shadow-distance) var(--card-image-box-shadow-distance) calc(var(--card-image-box-shadow-distance) * 2) hsl(0, 0%, 0%, 60%),
-            				inset calc(-1 * var(--card-image-box-shadow-distance)) calc(-1 * var(--card-image-box-shadow-distance)) calc(var(--card-image-box-shadow-distance) * 2) hsl(0, 0%, 90%, 2%);
-		/* --card-container-color: hsl(0, 0%, 100%, 2%); */
+								inset calc(-1 * var(--card-image-box-shadow-distance)) calc(-1 * var(--card-image-box-shadow-distance)) calc(var(--card-image-box-shadow-distance) * 2) hsl(0, 0%, 90%, 2%);
+		--wave-color-primary: #cf643c;
+		--wave-color-secondary: #695a87;
+	}
+}
+
+@media (prefers-color-scheme: light) {
+	.wave-shape-container {
+		filter: brightness(130%);
 	}
 }
 
 
+
 body {
-	--header-height: 4em;
 	background-color: var(--primary-hsl);
 	margin: 0;
 	padding: 0;
@@ -125,12 +139,17 @@ header {
 	pointer-events: none;
 }
 
+
 /* -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
 
-
 #page {
-	padding-top: calc(var(--header-height) + 2em);
-	display: flex;
+	padding-top: calc(var(--header-height));
+}
+
+.wave-shape-container {
+	position: relative;
+	line-height: 0;
+	/* display: grid; */
 }
 
 .creations-container {
@@ -152,8 +171,8 @@ header {
 	--gap-size: 1.5em;
 	--grid-size: calc(40em / 2.4 - var(--gap-size));
 
-	grid-template-columns: repeat(auto-fit, minmax(var(--grid-size), 1fr));
-	justify-content: center;
+	grid-template-columns: repeat(auto-fit, minmax(var(--grid-size), auto));
+	justify-content: start;
 	gap: var(--gap-size);
 	display: grid;
 }
@@ -167,6 +186,7 @@ header {
 	position: relative;
 	padding: 1em;
 	display: block;
+	max-width: var(--grid-size);
 	/* border: 1px solid var(--border-color); */
 	transition: filter 200ms ease, transform 200ms ease;
 }
@@ -197,17 +217,10 @@ a.card-button:hover:before {
 	background: hsl(0, 0%, 0%, 10%);
 	aspect-ratio: 1 / 1;
 	padding: 1em;
-
-	/* background: #e99f59;
-	background: #cf643c;
-
-	background: #8e74ae; */
-	/* background: #695a87; */
 }
 
 .card-icon-frame.drop-shadow:after {
 	box-shadow: var(--card-image-box-shadow);
-	/* position: relative; */
 	height: 100%;
 	width: 100%;
 	opacity: 1;
@@ -251,29 +264,6 @@ a.card-button:hover:before {
 
 /* -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
 
-
-img.transparent {
-	--checkerboard-size: 25px;
-	--checkerboard-offset: calc(var(--checkerboard-size) - var(--image-margin));
-	/* --transparent-background-color: rgba(150,150,150,0.1); */
-	/* --half-size: calc(var(--checkerboard-size) / 2); */
-	
-	/* background-color: var(--transparent-background-color);
-	background-image: linear-gradient(45deg,var(--transparent-background-color) 25%,rgba(239,239,239,0) 25%,rgba(239,239,239,0) 75%,var(--transparent-background-color) 75%,var(--transparent-background-color)),linear-gradient(45deg,var(--transparent-background-color) 25%,rgba(239,239,239,0) 25%,rgba(239,239,239,0) 75%,var(--transparent-background-color) 75%,var(--transparent-background-color));
-	background-position: 0 0, calc(var(--checkerboard-size) / 2) calc(var(--checkerboard-size) / 2);
-	background-size: var(--checkerboard-size) var(--checkerboard-size); */
-
-	/* transition: inherit, background-position 4000ms ease; */
-	/* background-image:
-		linear-gradient(45deg, #ccc 25%, transparent 25%), 
-		linear-gradient(135deg, #ccc 25%, transparent 25%),
-		linear-gradient(45deg, transparent 75%, #ccc 75%),
-		linear-gradient(135deg, transparent 75%, #ccc 75%);
-    background-size: var(--checkerboard-size) var(--checkerboard-size); Must be a square
-    background-position: var(--position); Must be half of one side of the square */
-}
-
-
 a:link,
 a:visited {
 	color: rgb(29, 155, 240);
@@ -283,4 +273,40 @@ a:visited {
 a:link:hover,
 a:visited:hover {
 	color: rgb(70, 181, 255);
+}
+
+
+footer {
+	background-color: var(--light-clr);
+	width: 100%;
+}
+
+#social-media-container {
+	--column-size: 1.7rem;
+	grid-template-columns: repeat(3, var(--column-size));
+	gap: calc(var(--column-size) * 1.5);
+	justify-content: center;
+	align-items: center;
+	display: grid;
+
+	background-color: var(--secondary-hsl);
+	box-shadow: var(--footer-box-shadow);
+	position: relative;
+	margin: auto;
+	height: 8rem;
+}
+
+.social-icon {
+	height: var(--column-size);
+	width: var(--column-size);
+}
+
+.social-icon,
+.social-icon path {
+	fill: var(--text-color);
+	transition: fill 150ms ease;
+}
+
+.social-icon:hover path {
+	fill: var(--clr);
 }
