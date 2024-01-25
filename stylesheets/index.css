@@ -36,9 +36,6 @@ html {
 	margin: 0;
 }
 
-/* @media (max-width: 650px) { html { --header-height: 3.25em; } }
-@media (max-width: 350px) { html { --header-height: 2.5em; } } */
-
 @media (prefers-color-scheme: dark) {
 	html.colors {
 		--primary-hsl: hsl(230.5, 29%, 10%);
