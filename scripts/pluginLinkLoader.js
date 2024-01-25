@@ -18,21 +18,24 @@
 // }
 // xhr.send()
 
-const containerElements = document.getElementsByClassName('creations-container');
-// Get the first element with the class "container"
-const container = containerElements[0];
-
-const h1 = document.createElement('h1')
-h1.textContent = "Plugins"
-container.appendChild(h1)
-
-const grid = document.createElement('div')
-grid.className = 'plugins card-container'
-container.appendChild(grid)
 
 fetch('/projects/pluginLinks.json')
 	.then(response => response.json())
 	.then(data => {
+		const container = document.getElementById('creations-container');
+		const catagory = document.createElement('div')
+		catagory.style.marginTop = '3rem'
+		catagory.style.order = 2
+		container.appendChild(catagory)
+
+		const h1 = document.createElement('h1')
+		h1.textContent = "Plugins"
+		catagory.appendChild(h1)
+
+		const grid = document.createElement('div')
+		grid.className = 'plugins card-container'
+		catagory.appendChild(grid)
+
 		// Loop through each value in the JSON data
 		for (let key in data) {
 			if (data.hasOwnProperty(key)) {
@@ -41,6 +44,12 @@ fetch('/projects/pluginLinks.json')
 				// console.log(key, value);
 				// const pluginCard = document.createElement('div');
 				// pluginCard.className = 'card'
+
+				// find a way to create a proxy
+				// fetch(`https://thumbnails.roblox.com/v1/assets?assetIds=${7785391867}&returnPolicy=PlaceHolder&size=700x700&format=Png&isCircular=false%22`)
+				// 	.then((response) => response.json())
+				// 	.then((json) => console.log(json));
+				// log(data)
 
 				// Getting common color from an image V
 				// https://gist.github.com/dctalbot/40e3ef209e12f50800734d005131d820
