@@ -36,6 +36,9 @@ html {
 	margin: 0;
 }
 
+@media (max-width: 650px) { html { --header-height: 3.25em; } }
+@media (max-width: 400px) { html { --header-height: 2.5em; } }
+
 @media (prefers-color-scheme: dark) {
 	html.colors {
 		--primary-hsl: hsl(230.5, 29%, 10%);
@@ -120,8 +123,9 @@ header {
 }
 
 #navigation > .navigation-button {
-	margin: 0 0.65em 0 0.6em;
-	font-size: 1.2em;
+	--button-margin: calc(var(--header-height) / 8);
+	margin: 0 var(--button-margin) 0 var(--button-margin);
+	font-size: calc(var(--header-height) / (10/3));
 	border-radius: 6px;
 	transition: background-color 100ms ease;
 }
@@ -133,14 +137,14 @@ header {
 
 #navigation > .navigation-button > a {
 	color: var(--header-text-color);
-	padding: 0.5em;
+	padding: calc(var(--header-height) / 8);
 }
 
 #navigation .profile-icon {
 	height: calc(var(--header-height) - 1.2em);
 	width: calc(var(--header-height) - 1.2em);
-	padding-right: 2em;
-	padding-left: 1.5em;
+	padding-right: calc(var(--header-height) / 2);
+	padding-left: calc(var(--header-height) / 2);
 	position: relative;
 	pointer-events: none;
 }
@@ -261,6 +265,19 @@ a.card-button:hover:before {
 	--image-aspect-ratio: 2 / 1;
 	grid-template-columns: repeat(2, 1fr);
 }
+
+/* @media (min-width: 637px) {
+	.card-container.wide {
+		grid-template-columns: repeat(2, 1fr);
+	}
+} */
+
+@media (max-width: 650px) {
+	.card-container.wide {
+		grid-template-columns: 1fr;
+	}
+}
+
 
 .card-container.wide .card-button {
 	padding: 0em;
