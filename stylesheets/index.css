@@ -38,7 +38,8 @@ html {
 @media (prefers-color-scheme: dark) {
 	html.colors {
 		--primary-hsl: hsl(230.5, 29%, 10%);
-		--secondary-hsl: hsl(230.5, 22.4%, 17%);
+		/* --secondary-hsl: hsl(230.5, 22.4%, 17%); */
+		--secondary-hsl: hsl(232, 26.3%, 11.2%);
 		--tertiary-hsl: hsl(230.5, 22.4%, 22%);
 
 		--border-color: hsl(0, 0%, 12%);
@@ -51,8 +52,8 @@ html {
 
 		--card-shadow-gradient: linear-gradient(145deg, hsl(0, 0%, 0%, 90%), transparent);
 		--card-image-box-shadow-distance: 0.15em;
-		--card-image-box-shadow: inset var(--card-image-box-shadow-distance) var(--card-image-box-shadow-distance) calc(var(--card-image-box-shadow-distance) * 2) hsl(0, 0%, 0%, 60%),
-								inset calc(-1 * var(--card-image-box-shadow-distance)) calc(-1 * var(--card-image-box-shadow-distance)) calc(var(--card-image-box-shadow-distance) * 2) hsl(0, 0%, 90%, 2%);
+		--card-image-box-shadow: inset var(--card-image-box-shadow-distance) var(--card-image-box-shadow-distance) calc(var(--card-image-box-shadow-distance) * 2) hsl(0, 0%, 0%, 35%),
+								inset calc(-1 * var(--card-image-box-shadow-distance)) calc(-1 * var(--card-image-box-shadow-distance)) calc(var(--card-image-box-shadow-distance) * 2) hsl(0, 0%, 90%, 1%);
 		--wave-color-primary: #cf643c;
 		--wave-color-secondary: #695a87;
 	}
@@ -152,24 +153,27 @@ header {
 	/* display: grid; */
 }
 
-.creations-container {
+#creations-container {
 	width: calc(100% - 4em);
 	max-width: 1080px;
 	margin: auto;
 
-	background-color: hsl(0, 0%, 100%, 1%);
+	/* background-color: hsl(0, 0%, 100%, 1%); */
 	border-radius: 1em;
 	padding: 2em;
+
+	flex-direction: column;
+	display: flex;
 }
 
 
 /* -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
 /* Cards */
 
-
 .card-container {
 	--gap-size: 1.5em;
 	--grid-size: calc(40em / 2.4 - var(--gap-size));
+	--image-aspect-ratio: 1 / 1;
 
 	grid-template-columns: repeat(auto-fit, minmax(var(--grid-size), auto));
 	justify-content: start;
@@ -189,6 +193,13 @@ header {
 	max-width: var(--grid-size);
 	/* border: 1px solid var(--border-color); */
 	transition: filter 200ms ease, transform 200ms ease;
+}
+
+.card-button span,
+.card-button li {
+	color: var(--text-color);
+	font-size: 1em;
+	opacity: 0.8;
 }
 
 a.card-button:before {
@@ -212,7 +223,7 @@ a.card-button:hover:before {
 	opacity: 0
 }
 
-.card-icon-frame {
+.card-container:not(.wide) .card-icon-frame {
 	border-radius: calc(var(--card-border-radius) / 3);
 	background: hsl(0, 0%, 0%, 10%);
 	aspect-ratio: 1 / 1;
@@ -238,10 +249,34 @@ a.card-button:hover:before {
 	margin: 0.6em 0 0.3em 0;
 }
 
-.card-button > span {
-	font-size: 1em;
-	opacity: 0.8;
+
+/* wide cards */
+.card-container.wide {
+	--grid-size: 1fr;
+	--image-aspect-ratio: 2 / 1;
+	grid-template-columns: repeat(2, 1fr);
 }
+
+.card-container.wide .card-button {
+	padding: 0em;
+	max-width: none;
+}
+
+.card-container.wide .card-button ul {
+	margin-top: 0em;
+}
+
+.card-container.wide .card-icon-frame {
+	border-radius: var(--card-border-radius) var(--card-border-radius) 0 0;
+	background: hsl(0, 0%, 0%, 10%);
+	aspect-ratio: 2 / 1;
+}
+
+.card-container.wide .card-button > h3,
+.card-container.wide .card-button > span {
+	margin-left: 1rem;
+}
+
 
 
 /* -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */

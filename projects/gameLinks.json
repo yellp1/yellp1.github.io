@@ -1,0 +1,16 @@
+{
+	"My Droplets": {
+		"link": "https://www.roblox.com/games/2773040896/My-Droplets",
+		"thumbnail": "/images/thumbnails/my-droplets.png",
+		"description": ["Worked on singleplayer and multiplayer minigames.", "Wrote tutorial and rewards systems.", "More fleshed out world interaction system.", "Added mobile support for exterior home building.", "Halloween update 2022."],
+		"dates": ["August 2020", "November 2022"],
+		"roles": ["Gameplay Programmer"]
+	},
+
+	"Unannounced Fullflower Studio Project": {
+		"thumbnail": "/images/thumbnails/fullflower-banner-b&w.png",
+		"description": ["Worked on a terrain rendering minimap, character customizer, plant growing & harvesting, and weather + lighting systems.", "Implemented analytics.", "More under NDA"],
+		"dates": ["November 2022", "December 2023"],
+		"roles": ["Engineer"]
+	}
+}
