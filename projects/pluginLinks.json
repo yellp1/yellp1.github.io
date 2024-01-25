@@ -1,8 +1,8 @@
 {
-	"Local Icons": {
+	"Roblox Icon Library": {
 		"link": "https://create.roblox.com/marketplace/asset/7785391867/Local-Icons",
 		"icon": "/images/icons/local-icons.png",
-		"description": "List of 3,776 free to use ROBLOX images saved locally on your computer, so no need to load an image from the web."
+		"description": "An icon picker with a massive library of over 6k roblox created icons, great for use in games or plugin development!"
 	},
 	"Studio Style Viewer": {
 		"link": "https://create.roblox.com/marketplace/asset/6898396682/Style-Guide-Viewer",
@@ -12,12 +12,12 @@
 	"Wall Creator": {
 		"link": "https://create.roblox.com/marketplace/asset/4317552923/Wall-Creator",
 		"icon": "/images/icons/wall-creator.png",
-		"description": "Allows you to quickly create a wall or fence out of complex shapes in seconds!"
+		"description": "Allows you to quickly create a wall or fence out of complex shapes in the click of a button!"
 	},
 	"Explorer Scanner": {
 		"link": "https://create.roblox.com/marketplace/asset/6268268616/Explorer-Scanner",
 		"icon": "/images/icons/explorer-scanner.png",
-		"description": "Displays a list of instances and information about them in a single, easy to understand, plugin widget."
+		"description": "Displays a list of instances and information about them in an easy to understand widget."
 	},
 	"Advanced Studio Camera": {
 		"link": "https://create.roblox.com/marketplace/asset/4631400056/Advanced-Studio-Camera",
@@ -27,7 +27,7 @@
 	"UI Corner Editor": {
 		"link": "https://create.roblox.com/marketplace/asset/6674294794/UI-Corner-Editor",
 		"icon": "/images/icons/ui-corner-editor.png",
-		"description": "Makes creating corner UI a lot simpler, and allows single sides / corners to be round while others are sharp."
+		"description": "Better UI corners, allowing you to control which corners of a frame get rounded."
 	},
 	"UI Editor Settings": {
 		"link": "https://create.roblox.com/marketplace/asset/11966277796/UI-Editor-Settings",
