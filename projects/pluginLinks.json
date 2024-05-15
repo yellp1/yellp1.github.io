@@ -1,41 +1,46 @@
 {
 	"Roblox Icon Library": {
-		"link": "https://create.roblox.com/marketplace/asset/7785391867/Local-Icons",
+		"link": "https://create.roblox.com/store/asset/7785391867/Local-Icons",
 		"icon": "/images/icons/local-icons.png",
 		"description": "An icon picker with a massive library of over 6k roblox created icons, great for use in games or plugin development!"
 	},
+	"Advanced Studio Camera": {
+		"link": "https://create.roblox.com/store/asset/4631400056/Advanced-Studio-Camera",
+		"icon": "/images/icons/advanced-studio-camera.png",
+		"description": "Allows you to change roblox's default studio camera features!"
+	},
+	"Terrain Material Info": {
+		"link": "https://create.roblox.com/store/asset/13843303210/Terrain-Material-Info",
+		"icon": "/images/icons/terrain-material-info.png",
+		"description": "Hovering over a terrain material will show a more in-depth info about the material such as it's type, and the material variant overriding it if one exists."
+	},
 	"Studio Style Viewer": {
-		"link": "https://create.roblox.com/marketplace/asset/6898396682/Style-Guide-Viewer",
+		"link": "https://create.roblox.com/store/asset/6898396682/Style-Guide-Viewer",
 		"icon": "/images/icons/studio-style-viewer.png",
 		"description": "Visualizer for studio colors."
 	},
 	"Wall Creator": {
-		"link": "https://create.roblox.com/marketplace/asset/4317552923/Wall-Creator",
+		"link": "https://create.roblox.com/store/asset/4317552923/Wall-Creator",
 		"icon": "/images/icons/wall-creator.png",
 		"description": "Allows you to quickly create a wall or fence out of complex shapes in the click of a button!"
 	},
 	"Explorer Scanner": {
-		"link": "https://create.roblox.com/marketplace/asset/6268268616/Explorer-Scanner",
+		"link": "https://create.roblox.com/store/asset/6268268616/Explorer-Scanner",
 		"icon": "/images/icons/explorer-scanner.png",
 		"description": "Displays a list of instances and information about them in an easy to understand widget."
 	},
-	"Advanced Studio Camera": {
-		"link": "https://create.roblox.com/marketplace/asset/4631400056/Advanced-Studio-Camera",
-		"icon": "/images/icons/advanced-studio-camera.png",
-		"description": "Allows you to change roblox's default studio camera features!"
-	},
 	"UI Corner Editor": {
-		"link": "https://create.roblox.com/marketplace/asset/6674294794/UI-Corner-Editor",
+		"link": "https://create.roblox.com/store/asset/6674294794/UI-Corner-Editor",
 		"icon": "/images/icons/ui-corner-editor.png",
 		"description": "Better UI corners, allowing you to control which corners of a frame get rounded."
 	},
 	"UI Editor Settings": {
-		"link": "https://create.roblox.com/marketplace/asset/11966277796/UI-Editor-Settings",
+		"link": "https://create.roblox.com/store/asset/11966277796/UI-Editor-Settings",
 		"icon": "/images/icons/ui-editor-settings.png",
 		"description": "Allows you to enable / disable certain features of the Roblox UI Editor."
 	},
 	"Measurement Converter": {
-		"link": "https://create.roblox.com/marketplace/asset/7121556106/Measurement-Converter",
+		"link": "https://create.roblox.com/store/asset/7121556106/Measurement-Converter",
 		"icon": "https://tr.rbxcdn.com/34d52464487826c749e9438a2adbf8e7/512/512/Image/Png",
 		"description": "Way of converting real world units of measurement into studs."
 	}
