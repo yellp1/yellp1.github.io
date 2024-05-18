@@ -340,13 +340,7 @@ a.card-button:hover:before {
 	}
 }
 
-@media (min-width: 400px) {
-	#sidebar-navigation {
-		display: none;
-	};
-}
-
-@media (max-width:399px) and (orientation: portrait) {
+@media (max-width: 600px) and (max-aspect-ratio: 2 / 3) {
 	#topbar-navigation > .navigation-button {
 		display: none;
 	}
@@ -359,6 +353,10 @@ a.card-button:hover:before {
 	#topbar-navigation > .sidebar-button {
 		display: flex;
 	}
+
+	#sidebar-navigation {
+		display: flex;
+	};
 }
 
 
