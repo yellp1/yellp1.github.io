@@ -25,11 +25,11 @@ sidebarButton.addEventListener('click', _toggleSidebar);
 // Add a click event listener to each element in the sidebarr
 const sidebarElements = document.querySelectorAll('#sidebar-navigation > .navigation-button > a');
 
+function hideSidebar() { _setSidebar(false); }
+
 sidebarElements.forEach(function(element) {
-	element.addEventListener('click', _toggleSidebar);
+	element.addEventListener('click', hideSidebar);
 });
 
 // Add a click event listener to the cover div
-fullscreenCover.addEventListener('click', function() {
-	_setSidebar(false);
-});
+fullscreenCover.addEventListener('click', hideSidebar);
