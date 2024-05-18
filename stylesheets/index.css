@@ -174,6 +174,7 @@ header {
 	margin: var(--header-height) 0 0 0;
 	padding: 1rem 1rem 0 1rem;
 	list-style-type: none;
+	pointer-events: none;
 	position: fixed;
 	display: none;
 	opacity: 0;
@@ -185,14 +186,15 @@ header {
 
 #sidebar-navigation.isOpened {
 	transform: translateX(0);
+	pointer-events: all;
 	opacity: 1;
 }
 
 #sidebar-navigation > li {
 	background: var(--header-background-color);
 	margin-bottom: 0.5rem;
-	font-size: 1.1rem;
 	border-radius: 6px;
+	font-size: 1.1rem;
 	display: flex;
 
 	transition: background-color 100ms ease;
@@ -205,6 +207,7 @@ header {
 #sidebar-navigation > li > a {
 	padding: 0.5rem 4rem 0.5rem 0.5rem;
 	color: var(--header-text-color);
+	
 	transition: padding 200ms ease;
 }
 
