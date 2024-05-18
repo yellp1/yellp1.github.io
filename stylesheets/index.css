@@ -355,7 +355,7 @@ a.card-button:hover:before {
 	}
 
 	#sidebar-navigation {
-		display: flex;
+		display: block;
 	};
 }
 
