@@ -6,8 +6,10 @@ const page = document.querySelector('#page');
 
 // Create a cover div
 var fullscreenCover = document.createElement('div');
+// Tells our CSS document that this cover div is for the sidebar.
+fullscreenCover.setAttribute('ownerid', 'sidebar-navigation')
 fullscreenCover.id = 'fullscreen-cover';
-fullscreenCover.setAttribute('tabindex', 0)
+// fullscreenCover.setAttribute('tabindex', 0)
 
 function _setSidebarState(value) {
 	const state = sidebar.classList.toggle('isOpened', value);
@@ -16,11 +18,11 @@ function _setSidebarState(value) {
 	if (state) {
 		// Add the cover div to the page
 		page.appendChild(fullscreenCover);
+		// Force a reflow to make the transition work.
+		void fullscreenCover.offsetHeight;
 	}
 
-	// setTimeout(function() {
 	fullscreenCover.classList.toggle('active', state);
-	// }, 10);
 }
 
 // Toggle the sidebar state
