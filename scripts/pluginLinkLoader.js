@@ -57,6 +57,7 @@ fetch('/projects/pluginLinks.json')
 				button.className = 'card-button drop-shadow inset-shadow'
 				button.href = value.link
 				button.target = "_blank"
+				button.ariaLabel = "Link Card: " + key
 
 				const imageFrame = document.createElement("div")
 				// imageFrame.className = "card-icon-frame drop-shadow"
@@ -64,6 +65,7 @@ fetch('/projects/pluginLinks.json')
 				button.appendChild(imageFrame)
 
 				const icon = document.createElement("img")
+				icon.ariaLabel = "Icon: " + key
 				icon.src = value.icon
 				imageFrame.appendChild(icon)
 				
