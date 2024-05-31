@@ -28,18 +28,20 @@ fetch('/projects/gameLinks.json')
 				// https://gist.github.com/dctalbot/40e3ef209e12f50800734d005131d820
 				const button = document.createElement("a")
 				button.className = 'card-button drop-shadow inset-shadow'
+				button.ariaLabel = "Card: " + key
 				button.target = "_blank"
 				
 				if (value.link) {
+					button.ariaLabel = "Link Card: " + key
 					button.href = value.link
 				}
 				
 				const imageFrame = document.createElement("div")
-				// imageFrame.className = "card-icon-frame drop-shadow"
 				imageFrame.className = "card-icon-frame"
 				button.appendChild(imageFrame)
-
+				
 				const thumbnail = document.createElement("img")
+				thumbnail.ariaLabel = "Thumbnail: " + key
 				thumbnail.src = value.thumbnail
 				imageFrame.appendChild(thumbnail)
 				

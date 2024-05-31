@@ -24,20 +24,23 @@ function _setSidebarState(value) {
 }
 
 // Toggle the sidebar state
-sidebarButton.addEventListener('click', function() {
+function hookupButtonInputs(button, callback) {
+	button.addEventListener('click', callback);
+
+	// Handling tab focused selections (Pressing enter on a focus-visible element)
+	button.addEventListener("keydown", (event) => {
+		if (event.isComposing || event.keyCode === 229 || event.repeat) {
+			return;
+		}
+
+		if (event.code === "Enter" || event.code === " ") {
+			callback();
+		}
+	});
+}
+
+hookupButtonInputs(sidebarButton, function() {
 	_setSidebarState();
-});
-
-sidebarButton.addEventListener("keydown", (event) => {
-	// if (event.isComposing || event.keyCode === 229) {
-	// 	return;
-	// }
-
-	console.log(event.code, event.key);
-	if (event.code === "Enter" || event.code === " ") {
-		sidebarButton.click();
-	}
-	// do something
 });
 
 
