@@ -74,8 +74,14 @@ html {
 
 body {
 	background-color: var(--primary-hsl);
+	position: relative;
 	margin: 0;
 	padding: 0;
+	width: 100%;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
 }
 
 h1 {
@@ -141,7 +147,7 @@ header {
 	padding: calc(var(--header-height) / 8);
 }
 
-#topbar-navigation > .sidebar-button {
+.sidebar-button {
 	margin-left: calc(var(--header-height) / 3);
 	height: calc(var(--header-height) / 1.7);
 	width: calc(var(--header-height) / 1.7);
@@ -149,12 +155,12 @@ header {
 	display: none;
 }
 
-#topbar-navigation > .sidebar-button > a {
+.sidebar-button > a {
 	width: inherit;
 	height: inherit;
 }
 
-#topbar-navigation .profile-icon {
+.profile-icon {
 	height: calc(var(--header-height) / 1.7);
 	width: calc(var(--header-height) / 1.7);
 	padding-right: calc(var(--header-height) / 2);
@@ -220,6 +226,7 @@ header {
 
 #page {
 	padding-top: calc(var(--header-height));
+	width: 100%;
 }
 
 .wave-shape-container {
@@ -459,8 +466,7 @@ footer {
 
 
 #fullscreen-cover {
-	background-color: rgba(0, 0, 0, 0.5);
-	position: fixed;
+	position: absolute;
 	height: 100vh;
 	width: 100vw;
 	top: 0;
@@ -468,8 +474,15 @@ footer {
 	z-index: 9;
 	opacity: 0;
 	pointer-events: none;
-
 	transition: opacity 200ms ease, backdrop-filter 200ms ease;
+}
+
+#fullscreen-cover:focus {
+	box-sizing: border-box;
+    -moz-box-sizing: border-box;
+	border: 10px solid red;
+	-webkit-box-sizing: border-box;
+	border: 4px solid red;
 }
 
 #fullscreen-cover.active {
