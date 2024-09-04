@@ -68,3 +68,32 @@ fullscreenCover.addEventListener('transitionend', function() {
 		parentNode.removeChild(fullscreenCover);
 	}
 });
+
+const navigationButtons = document.querySelectorAll('.navigation-button > a');
+
+navigationButtons.forEach(function(button) {
+	var anchor = button.getAttribute('href');
+
+	button.onclick = function() {
+		// Use the anchor variable here
+		const foundElement = document.getElementById(anchor.substring(1));
+		foundElement.scrollIntoView({ behavior: 'smooth' });
+	};
+
+	// Handling tab focused selections (Pressing enter on a focus-visible element)
+	button.addEventListener("keydown", (event) => {
+		if (event.isComposing || event.keyCode === 229 || event.repeat) {
+			return;
+		}
+
+		if (event.code === "Enter" || event.code === " ") {
+			// Use the anchor variable here
+			const foundElement = document.getElementById(anchor.substring(1));
+			foundElement.scrollIntoView({ behavior: 'smooth' });
+		}
+	});
+
+	button.removeAttribute('href');
+	button.setAttribute('tabIndex', '0');
+	button.setAttribute('role', 'button');
+});
