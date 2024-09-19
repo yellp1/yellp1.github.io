@@ -233,7 +233,7 @@ header {
 }
 
 .wave-shape-container {
-	width: max(100vw, 100vh);
+	width: max(100vw, 50vh);
 	position: relative;
 	line-height: 0;
 	left: 50%;
