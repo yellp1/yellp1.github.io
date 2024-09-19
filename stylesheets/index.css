@@ -5,20 +5,21 @@ html.colors {
 	--secondary-hsl: hsl(0, 0%, 100%);
 	--tertiary-hsl: hsl(0, 0%, 100%);
 	--orange-hs: 43, 100%;
+	--light-clr: hsl(0, 0%, 90%);
 }
 
 html.entities {
 	--header-button-hover-color: hsla(var(--orange-hs), 80%, 60%);
 	--header-background-color: var(--secondary-hsl);
 	--header-text-color: var(--text-color);
-	--header-box-shadow: 0rem 0.2rem 1rem 0rem rgb(0 0 0 / 0.2);
-	--footer-box-shadow: 0rem -0.2rem 1rem 0rem rgb(0 0 0 / 0.2);
+	--header-box-shadow: 0rem 0.1rem 0.6rem 0rem rgb(0 0 0 / 0.3);
+	--footer-box-shadow: 0rem -0.1rem 0.3rem 0rem rgb(0 0 0 / 0.4);
 	--sidebar-box-shadow: 0.2rem 0rem 1rem 0rem rgb(0 0 0 / 0.2);
 	--sidebar-clip-path: inset(0px -1rem 0px 0px);
 
 	--card-box-shadow: 0em 0.3em 0.5em 0.05em hsla(0, 0%, 0%, 20%);
 
-	--card-image-box-shadow-distance: 0.2em;
+	--card-image-box-shadow-distance: 0.1em;
 	--card-image-box-shadow: inset var(--card-image-box-shadow-distance) var(--card-image-box-shadow-distance) calc(var(--card-image-box-shadow-distance) * 2) hsl(0, 0%, 0%, 18%),
             				inset calc(-1 * var(--card-image-box-shadow-distance)) calc(-1 * var(--card-image-box-shadow-distance)) calc(var(--card-image-box-shadow-distance) * 2) hsl(0, 0%, 90%, 3%);
 	--card-box-shadow: 0em 0.3em 0.5em 0.1em hsla(0, 0%, 0%, 20%);
@@ -49,14 +50,15 @@ html {
 		--border-color: hsl(0, 0%, 12%);
 		--text-color-bright: hsl(0, 0%, 100%);
 		--text-color: hsl(0, 0%, 98%);
+		--light-clr: hsl(230.5, 22.4%, 14%);
 	}
 	html.entities {
 		--header-button-hover-color: var(--tertiary-hsl);
 		--transparent-background-color: hsl(230.5, 22.4%, 14%, 100%);
-		--card-image-border-color: var(--secondary-hsl);
+		--card-image-border-color: var(--light-clr);
 
 		--card-shadow-gradient: linear-gradient(145deg, hsl(0, 0%, 0%, 90%), transparent);
-		--card-image-box-shadow-distance: 0.15em;
+		--card-image-box-shadow-distance: 0.0em;
 		--card-image-box-shadow: inset var(--card-image-box-shadow-distance) var(--card-image-box-shadow-distance) calc(var(--card-image-box-shadow-distance) * 2) hsl(0, 0%, 0%, 35%),
 								inset calc(-1 * var(--card-image-box-shadow-distance)) calc(-1 * var(--card-image-box-shadow-distance)) calc(var(--card-image-box-shadow-distance) * 2) hsl(0, 0%, 90%, 1%);
 		--wave-color-primary: #cf643c;
@@ -226,12 +228,16 @@ header {
 
 #page {
 	padding-top: calc(var(--header-height));
+	overflow: hidden;
 	width: 100%;
 }
 
 .wave-shape-container {
+	width: max(100vw, 100vh);
 	position: relative;
 	line-height: 0;
+	left: 50%;
+	transform: translateX(-50%);
 	/* display: grid; */
 }
 
@@ -265,7 +271,7 @@ header {
 
 .card-button {
 	--card-border-radius: 0.5em;
-	border: 1px solid var(--light-clr);
+	border: 1px solid var(--card-image-border-color);
 	background: --card-shadow-gradient;
 	background-color: var(--secondary-hsl);
 	border-radius: var(--card-border-radius);
@@ -274,7 +280,7 @@ header {
 	display: block;
 	max-width: var(--grid-size);
 
-	transition: filter 200ms ease, transform 200ms ease;
+	transition: transform 200ms ease;
 }
 
 .card-button span,
@@ -309,7 +315,7 @@ a.card-button:hover:before {
 	border-radius: calc(var(--card-border-radius) / 3);
 	background: hsl(0, 0%, 0%, 10%);
 	aspect-ratio: 1 / 1;
-	padding: 1em;
+	/* padding: 1em; */
 }
 
 .card-icon-frame.drop-shadow:after {
@@ -434,12 +440,12 @@ a:visited:hover {
 
 
 footer {
-	background-color: var(--light-clr);
+	overflow: hidden;
 	width: 100%;
 }
 
 #social-media-container {
-	--column-size: 1.7rem;
+	--column-size: 2rem;
 	grid-template-columns: repeat(3, var(--column-size));
 	gap: calc(var(--column-size) * 1.5);
 	justify-content: center;
@@ -465,15 +471,17 @@ footer {
 }
 
 .social-icon:hover path {
+	stroke: rgb(0 0 0 / 0.1);
+	stroke-width: 1px;
 	fill: var(--clr);
 }
 
 
 #fullscreen-cover {
-	--blur-px: calc(max(100vw, 100vh) / 1000);
+	/* --blur-px: calc(max(100vw, 100vh) / 1000);
 	-webkit-backdrop-filter:blur(var(--blur-px));
-	backdrop-filter: blur(var(--blur-px));
-	background: rgb(0 0 0 / 0.5);
+	backdrop-filter: blur(var(--blur-px)); */
+	background: rgb(0 0 0 / 0.6);
 	position: fixed;
 	display: none;
 	height: 100vh;
