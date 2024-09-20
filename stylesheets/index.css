@@ -299,15 +299,18 @@ a.card-button:after {
 	box-shadow: var(--card-box-shadow);
 }
 
-a.card-button:hover {
+a.card-button:hover,
+a.card-button:focus-visible {
 	transform: scale(105%);
 }
 
-a.card-button:hover:after {
+a.card-button:hover:after,
+a.card-button:focus-visible:after {
 	opacity: 1;
 }
 
-a.card-button:hover:before {
+a.card-button:hover:before,
+a.card-button:focus-visible:before {
 	opacity: 0
 }
 
@@ -470,7 +473,8 @@ footer {
 	transition: fill 150ms ease;
 }
 
-.social-icon:hover path {
+.social-icon:hover path,
+.social-icon:focus-visible path {
 	stroke: rgb(0 0 0 / 0.1);
 	stroke-width: 1px;
 	fill: var(--clr);
