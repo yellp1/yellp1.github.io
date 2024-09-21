@@ -50,7 +50,7 @@ html {
 		--border-color: hsl(0, 0%, 12%);
 		--text-color-bright: hsl(0, 0%, 100%);
 		--text-color: hsl(0, 0%, 98%);
-		--light-clr: hsl(230.5, 22.4%, 14%);
+		--light-clr: hsl(230.5, 22.4%, 18%);
 	}
 	html.entities {
 		--header-button-hover-color: var(--tertiary-hsl);
@@ -467,7 +467,6 @@ footer {
 	width: var(--column-size);
 }
 
-.social-icon,
 .social-icon path {
 	fill: var(--text-color);
 	transition: fill 150ms ease;
