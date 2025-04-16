@@ -41,7 +41,7 @@
 	},
 	"Measurement Converter": {
 		"link": "https://create.roblox.com/store/asset/7121556106/Measurement-Converter",
-		"icon": "https://tr.rbxcdn.com/704d40786a29b3e0243f7b76ac6acbcd/512/512/Image/Webp",
+		"icon": "/images/icons/measurement-converter.png",
 		"description": "Way of converting real world units of measurement into studs."
 	}
 }
