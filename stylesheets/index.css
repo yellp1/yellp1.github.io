@@ -269,6 +269,10 @@ header {
 	display: grid;
 }
 
+.card-button .open-new-tab {
+	transition: opacity 100ms ease;
+}
+
 .card-button {
 	--card-border-radius: 0.5em;
 	border: 1px solid var(--card-image-border-color);

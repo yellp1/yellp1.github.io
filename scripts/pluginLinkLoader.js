@@ -82,20 +82,22 @@ fetch('/projects/pluginLinks.json')
 				description.textContent = value.description || "";
 				button.appendChild(description);
 
+				// Showing / hiding with opacity instead of parenting so we
+				// don't cause layout changes when hovering.
 				const openNewTabIcon = document.createElement("a");
-				openNewTabIcon.className = "material-symbols-outlined";
+				openNewTabIcon.className = "material-symbols-outlined open-new-tab";
 				openNewTabIcon.style.fontVariationSettings = '"FILL" 0, "wght" 600, "GRAD" 100, "opsz" 20';
 				openNewTabIcon.style.lineHeight = "1.17em";
 				openNewTabIcon.style.fontSize = "1.17em";
 				openNewTabIcon.style.margin = "auto";
 				openNewTabIcon.style.marginLeft = "0.5em";
+				openNewTabIcon.style.opacity = "0"; // Initially hidden
 				openNewTabIcon.textContent = "open_in_new";
+				titleContainer.appendChild(openNewTabIcon);
 
 				// Define functions for focus handling
 				const onFocus = () => {
-					if (!titleContainer.contains(openNewTabIcon)) {
-						titleContainer.appendChild(openNewTabIcon);
-					}
+					openNewTabIcon.style.opacity = "1";
 
 					// Add underline to the title
 					title.style.textDecorationLine = "underline";
@@ -103,9 +105,7 @@ fetch('/projects/pluginLinks.json')
 
 				const onFocusLost = () => {
 					if (!button.matches(':hover') && !button.matches(':focus')) {
-						if (titleContainer.contains(openNewTabIcon)) {
-							titleContainer.removeChild(openNewTabIcon);
-						}
+						openNewTabIcon.style.opacity = "0";
 					}
 
 					title.style.textDecoration = "none";
