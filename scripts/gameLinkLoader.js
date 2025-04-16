@@ -28,11 +28,11 @@ fetch('/projects/gameLinks.json')
 				// https://gist.github.com/dctalbot/40e3ef209e12f50800734d005131d820
 				const button = document.createElement("a")
 				button.className = 'card-button drop-shadow inset-shadow'
-				button.ariaLabel = "Card: " + key
+				button.ariaLabel = "Card " + key
 				button.target = "_blank"
 				
 				if (value.link) {
-					button.ariaLabel = "Link Card: " + key
+					button.ariaLabel = "Open in roblox"
 					button.href = value.link
 				}
 				
@@ -46,8 +46,40 @@ fetch('/projects/gameLinks.json')
 				imageFrame.appendChild(thumbnail)
 				
 				const title = document.createElement("h3")
+				title.style.display = "flex"
 				title.textContent = key
 				button.appendChild(title)
+
+				if (button.href) {
+					const openNewTabIcon = document.createElement("a");
+					openNewTabIcon.className = "material-symbols-outlined";
+					openNewTabIcon.style.lineHeight = "1.17em";
+					openNewTabIcon.style.fontSize = "1.17em";
+					openNewTabIcon.style.marginLeft = "0.5em";
+					openNewTabIcon.textContent = "open_in_new";
+	
+					// Define functions for focus handling
+					const onFocus = () => {
+						if (!title.contains(openNewTabIcon)) {
+							title.appendChild(openNewTabIcon);
+						}
+					};
+	
+					const onFocusLost = () => {
+						if (!button.matches(':hover') && !button.matches(':focus')) {
+							if (title.contains(openNewTabIcon)) {
+								title.removeChild(openNewTabIcon);
+							}
+						}
+					};
+	
+					// Add focus/blur event listeners
+					button.addEventListener('focusin', onFocus);
+					button.addEventListener('focusout', onFocusLost);
+	
+					button.addEventListener('mouseenter', onFocus);
+					button.addEventListener('mouseleave', onFocusLost);
+				}
 
 				const ul = document.createElement("ul")
 				

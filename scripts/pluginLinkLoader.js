@@ -53,29 +53,61 @@ fetch('/projects/pluginLinks.json')
 
 				// Getting common color from an image V
 				// https://gist.github.com/dctalbot/40e3ef209e12f50800734d005131d820
-				const button = document.createElement("a")
-				button.className = 'card-button drop-shadow inset-shadow'
-				button.href = value.link
-				button.target = "_blank"
-				button.ariaLabel = "Link Card: " + key
+				const button = document.createElement("a");
+				button.className = 'card-button drop-shadow inset-shadow';
+				button.href = value.link;
+				button.target = "_blank";
+				button.ariaLabel = "Open in roblox";
 
-				const imageFrame = document.createElement("div")
-				// imageFrame.className = "card-icon-frame drop-shadow"
-				imageFrame.className = "card-icon-frame"
-				button.appendChild(imageFrame)
+				// Set all innerHTML content at once instead of using +=
+				const cardIconFrame = document.createElement("div");
+				cardIconFrame.className = "card-icon-frame";
+				button.appendChild(cardIconFrame);
 
-				const icon = document.createElement("img")
-				icon.ariaLabel = "Icon: " + key
-				icon.src = value.icon
-				imageFrame.appendChild(icon)
-				
-				const title = document.createElement("h3")
-				title.textContent = key
-				button.appendChild(title)
+				const img = document.createElement("img");
+				img.ariaLabel = "Plugin Icon";
+				img.src = value.icon;
+				cardIconFrame.appendChild(img);
 
-				const description = document.createElement("span")
-				description.textContent = value.description || ""
-				button.appendChild(description)
+				// Get reference to title AFTER innerHTML is set
+				const title = document.createElement('h3');
+				title.className = "plugin-title";
+				title.style.display = "flex";
+				title.textContent = key;
+				button.appendChild(title);
+
+				const description = document.createElement("span");
+				description.textContent = value.description || "";
+				button.appendChild(description);
+
+				const openNewTabIcon = document.createElement("a");
+				openNewTabIcon.className = "material-symbols-outlined";
+				openNewTabIcon.style.lineHeight = "1.17em";
+				openNewTabIcon.style.fontSize = "1.17em";
+				openNewTabIcon.style.marginLeft = "0.5em";
+				openNewTabIcon.textContent = "open_in_new";
+
+				// Define functions for focus handling
+				const onFocus = () => {
+					if (!title.contains(openNewTabIcon)) {
+						title.appendChild(openNewTabIcon);
+					}
+				};
+
+				const onFocusLost = () => {
+					if (!button.matches(':hover') && !button.matches(':focus')) {
+						if (title.contains(openNewTabIcon)) {
+							title.removeChild(openNewTabIcon);
+						}
+					}
+				};
+
+				// Add focus/blur event listeners
+				button.addEventListener('focusin', onFocus);
+				button.addEventListener('focusout', onFocusLost);
+
+				button.addEventListener('mouseenter', onFocus);
+				button.addEventListener('mouseleave', onFocusLost);
 
 				grid.appendChild(button)
 			}
