@@ -318,7 +318,6 @@ a.card-button:focus-visible:before {
 	border-radius: calc(var(--card-border-radius) / 3);
 	background: hsl(0, 0%, 0%, 10%);
 	aspect-ratio: 1 / 1;
-	/* padding: 1em; */
 }
 
 .card-icon-frame.drop-shadow:after {
