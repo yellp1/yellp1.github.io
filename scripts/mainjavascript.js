@@ -9,11 +9,29 @@ var fullscreenCover = document.createElement('div');
 // Tells our CSS document that this cover div is for the sidebar.
 fullscreenCover.setAttribute('ownerid', 'sidebar-navigation')
 fullscreenCover.id = 'fullscreen-cover';
-// fullscreenCover.setAttribute('tabindex', 0)
+
+
+
+function accessibleOnClick(button, callback) {
+	button.addEventListener('click', callback);
+
+	// Handling tab focused selections (Pressing enter on a focus-visible element)
+	button.addEventListener("keydown", (event) => {
+		if (event.isComposing || event.keyCode === 229 || event.repeat) {
+			return;
+		}
+
+		if (event.code === "Enter" || event.code === " ") {
+			print(event.code)
+			callback();
+		}
+	});
+}
+
 
 function _setSidebarState(value) {
 	const state = sidebar.classList.toggle('isOpened', value);
-
+	console.log(state)
 	// Set the cover div to our sidebar state.
 	if (state) {
 		// Add the cover div to the page
@@ -25,23 +43,7 @@ function _setSidebarState(value) {
 	fullscreenCover.classList.toggle('active', state);
 }
 
-// Toggle the sidebar state
-function hookupButtonInputs(button, callback) {
-	button.addEventListener('click', callback);
-
-	// Handling tab focused selections (Pressing enter on a focus-visible element)
-	button.addEventListener("keydown", (event) => {
-		if (event.isComposing || event.keyCode === 229 || event.repeat) {
-			return;
-		}
-
-		if (event.code === "Enter" || event.code === " ") {
-			callback();
-		}
-	});
-}
-
-hookupButtonInputs(sidebarButton, function() {
+accessibleOnClick(sidebarButton, function() {
 	_setSidebarState();
 });
 
@@ -67,4 +69,21 @@ fullscreenCover.addEventListener('transitionend', function() {
 	if (parentNode && !fullscreenCover.classList.contains('active')) {
 		parentNode.removeChild(fullscreenCover);
 	}
+});
+
+const navigationButtons = document.querySelectorAll('.navigation-button > a');
+
+/* Topbar navigation buttons */
+navigationButtons.forEach(function(button) {
+	var anchor = button.getAttribute('href');
+
+	accessibleOnClick(button, function() {
+		// Use the anchor variable here
+		const foundElement = document.getElementById(anchor.substring(1));
+		foundElement.scrollIntoView({ behavior: 'smooth' });
+	});
+
+	button.removeAttribute('href');
+	button.setAttribute('tabIndex', '0');
+	button.setAttribute('role', 'button');
 });
