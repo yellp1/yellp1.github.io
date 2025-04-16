@@ -335,7 +335,7 @@ a.card-button:focus-visible:before {
 	width: 100%;
 }
 
-.card-button > h3 {
+.card-title-container {
 	margin: 0.6em 0 0.3em 0;
 }
 
@@ -398,11 +398,11 @@ a.card-button:focus-visible:before {
 	aspect-ratio: 2 / 1;
 }
 
-.card-container.wide .card-button > h3 {
+.card-container.wide .card-title-container {
 	margin-left: 1rem;
 }
 
-.card-container.wide .card-button > h3,
+.card-container.wide .card-title-container,
 .card-container.wide .card-button li {
 	margin-right: 1rem;
 }

@@ -45,32 +45,44 @@ fetch('/projects/gameLinks.json')
 				thumbnail.src = value.thumbnail
 				imageFrame.appendChild(thumbnail)
 				
-				const title = document.createElement("h3")
-				title.style.display = "flex"
-				title.textContent = key
-				button.appendChild(title)
+				const titleContainer = document.createElement("div");
+				titleContainer.style.display = "flex";
+				titleContainer.className = "card-title-container";
+				button.appendChild(titleContainer);
+
+				const title = document.createElement("h3");
+				title.style.display = "flex";
+				title.textContent = key;
+				titleContainer.appendChild(title);
 
 				if (button.href) {
 					const openNewTabIcon = document.createElement("a");
 					openNewTabIcon.className = "material-symbols-outlined";
+					openNewTabIcon.style.fontVariationSettings = '"FILL" 0, "wght" 600, "GRAD" 200, "opsz" 20';
 					openNewTabIcon.style.lineHeight = "1.17em";
 					openNewTabIcon.style.fontSize = "1.17em";
+					openNewTabIcon.style.margin = "auto";
 					openNewTabIcon.style.marginLeft = "0.5em";
 					openNewTabIcon.textContent = "open_in_new";
 	
 					// Define functions for focus handling
 					const onFocus = () => {
-						if (!title.contains(openNewTabIcon)) {
-							title.appendChild(openNewTabIcon);
+						if (!titleContainer.contains(openNewTabIcon)) {
+							titleContainer.appendChild(openNewTabIcon);
 						}
+
+						// Add underline to the title
+						title.style.textDecorationLine = "underline";
 					};
-	
+
 					const onFocusLost = () => {
 						if (!button.matches(':hover') && !button.matches(':focus')) {
-							if (title.contains(openNewTabIcon)) {
-								title.removeChild(openNewTabIcon);
+							if (titleContainer.contains(openNewTabIcon)) {
+								titleContainer.removeChild(openNewTabIcon);
 							}
 						}
+
+						title.style.textDecoration = "none";
 					};
 	
 					// Add focus/blur event listeners
