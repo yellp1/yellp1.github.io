@@ -2,6 +2,15 @@
 	"RobloxIconLibrary": {
 		"1.0.0": [
 			"Initial release"
+		],
+
+		"1.0.1": [
+			"Support More Image Types",
+			"Update Icon List"
+		],
+
+		"1.0.2": [
+			"Update Icon List"
 		]
 	}
 }
