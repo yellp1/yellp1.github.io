@@ -9,6 +9,11 @@
 		"icon": "/images/icons/advanced-studio-camera.png",
 		"description": "Allows you to change roblox's default studio camera features!"
 	},
+	"Audio Waveform Analyzer": {
+		"link": "https://create.roblox.com/store/asset/102435486135427/Audio-Waveform-Analyzer",
+		"icon": "/images/icons/audio-waveform-analyzer.png",
+		"description": "Provides a waveform of any audio instance you select in studio, and makes it easy to preview volume, remove silence at the start of audio, and more!"
+	},
 	"Terrain Material Info": {
 		"link": "https://create.roblox.com/store/asset/13843303210/Terrain-Material-Info",
 		"icon": "/images/icons/terrain-material-info.png",
