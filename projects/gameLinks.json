@@ -1,4 +1,18 @@
 {
+	"reStore": {
+		"link": "https://www.roblox.com/games/87179205054038/reStore",
+		"thumbnail": "/images/thumbnails/reStore.png",
+		"description": [
+			"Worked on pawn shop and traveling merchant systems.",
+			"Implemented a custom inventory system.",
+			"Implemented build system.",
+			"NPCs",
+			"Improve communication and workflow between art and engineering teams."
+		],
+		"dates": ["January 2026", "Present"],
+		"roles": ["Gameplay Engineer"]
+	},
+
 	"My Droplets": {
 		"link": "https://www.roblox.com/games/2773040896/My-Droplets",
 		"thumbnail": "/images/thumbnails/my-droplets.png",
