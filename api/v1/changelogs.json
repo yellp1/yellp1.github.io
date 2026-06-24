@@ -11,6 +11,13 @@
 
 		"1.0.2": [
 			"Update Icon List"
+		],
+
+		"1.1.0": [
+			"Add 'copy id' button to buttons and double click menu.",
+			"Added environment filter for 'studio' and 'game' icons.",
+			"Fixed studio icon not rendering on buttons.",
+			"Improved update flow for itch.io users."
 		]
 	}
 }
