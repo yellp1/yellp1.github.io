@@ -1,0 +1,21 @@
+{
+	"version": "1.2.0",
+	"changelog": {
+		"1.2.0": {
+			"added": [
+				"Add scroll inertia support for trackpad users!",
+				"Add middle mouse scrolling emulation for users without a middle mouse <i>(Ctrl/Cmd + Left Click)</i>.",
+				"Add changelog for plugin updates."
+			],
+
+			"fixed": [
+				"Fixed icon pixelization issue for OS scales other than 100%."
+			],
+
+			"changed": [
+				"Updated icon list.",
+				"Updated theme to match <i>\"new\"</i> studio colors."
+			]
+		}
+	}
+}
